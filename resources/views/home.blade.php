@@ -13,7 +13,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    <p>Ваш id: {{ Auth::user()->id }}</p>
+                    <p>Ваш email: {{ Auth::user()->email }}</p>
                     <p>Добро пожаловать: {{ Auth::user()->name }}</p>
                 </div>
             </div>

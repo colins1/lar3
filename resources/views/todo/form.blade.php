@@ -21,6 +21,8 @@
         </style>
     </head>
     <body class="antialiased">
+      <p>Ваш id: {{ Auth::user()->id }}</p>
+      <p>Ваш email: {{ Auth::user()->email }}</p>
       <p>Добро пожаловать: {{ Auth::user()->name }}</p>
         <div style="margin-left: auto; margin-top: 50px; margin-right: auto; width: 600px;">
           <form method="POST" action="{{ url('/todo/create') }}">

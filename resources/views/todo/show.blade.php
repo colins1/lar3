@@ -22,6 +22,8 @@
     </head>
     <body class="antialiased">
         <h1>Дорогой вы наш {{ Auth::user()->name }} ваша запись найдена</h1>
+        <p>Ваш id: {{ Auth::user()->id }}</p>
+        <p>Ваш email: {{ Auth::user()->email }}</p>
             <ul>
                 <li>{{ $todo['title'] }}</li>
                 <li>{{ $todo['description'] }}</li>

@@ -21,6 +21,8 @@
         </style>
     </head>
     <body class="antialiased">
+        <p>Ваш id: {{ Auth::user()->id }}</p>
+        <p>Ваш email: {{ Auth::user()->email }}</p>
         <p> {{ Auth::user()->name }} вы можите <a href="{{ url('/todo/create') }}">создать запись</a> </p>
         <form style="margin-top: 20px;" method="GET" action="{{ route('todo.show') }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
