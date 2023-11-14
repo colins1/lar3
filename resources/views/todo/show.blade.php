@@ -21,7 +21,7 @@
         </style>
     </head>
     <body class="antialiased">
-        <h1>Ваша запись найдена</h1>
+        <h1>Дорогой вы наш {{ Auth::user()->name }} ваша запись найдена</h1>
             <ul>
                 <li>{{ $todo['title'] }}</li>
                 <li>{{ $todo['description'] }}</li>

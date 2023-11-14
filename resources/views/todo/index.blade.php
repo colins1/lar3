@@ -21,14 +21,14 @@
         </style>
     </head>
     <body class="antialiased">
-        <a href="{{ url('/todo/create') }}">Создать запись</a>
+        <p> {{ Auth::user()->name }} вы можите <a href="{{ url('/todo/create') }}">создать запись</a> </p>
         <form style="margin-top: 20px;" method="GET" action="{{ route('todo.show') }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input type="text" style="width: 106px;" name="id" class="form-control" id="inputTitle" placeholder="id записи">
             <button type="submit" class="btn btn-primary">Отправить</button>
         </form>
         @if (!isset($todos))
-            <p>Нет задач</p>
+            <p>{{ Auth::user()->name }} у вас нет задач</p>
         @else
             @foreach ($todos as $todo)
                 <ul>

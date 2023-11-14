@@ -16,7 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/todo', [\App\Http\Controllers\TodosController::class, 'index'])->name('todo.index');
-Route::get('/todo/create', [\App\Http\Controllers\TodosController::class, 'create']);
-Route::post('/todo/create', [\App\Http\Controllers\TodosController::class, 'store']);
-Route::get('/todo/show', [\App\Http\Controllers\TodosController::class, 'show'])->name('todo.show');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/todo', [\App\Http\Controllers\TodosController::class, 'index'])->name('todo.index');
+    Route::get('/todo/create', [\App\Http\Controllers\TodosController::class, 'create']);
+    Route::post('/todo/create', [\App\Http\Controllers\TodosController::class, 'store']);
+    Route::get('/todo/show', [\App\Http\Controllers\TodosController::class, 'show'])->name('todo.show');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
